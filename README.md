@@ -1,0 +1,1 @@
+# mason_blog_example
