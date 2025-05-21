@@ -80,6 +80,9 @@ You can include/exclude parts of your template based on variables defined in `br
 {{#condition}}
 This code appears if 'condition' is true.
 {{/condition}}
+{{^condition}}
+This code appears if 'condition' is false.
+{{/condition}}
 ```
 
 ### 🔁 Loops
@@ -108,7 +111,9 @@ The `custom_card` brick included in this project generates a reusable Flutter ca
 
 ```bash
 # From project root
-mason make custom_card --widget_name "MyAwesomeCard" --title "Hello World" --subtitle "This was generated with Mason"
+mason make custom_card
+# Or, if you want to use hooks
+mason make custom_card --hooks
 ```
 
 ---
@@ -120,8 +125,8 @@ Mason supports community bricks published on [BrickHub.dev](https://brickhub.dev
 Search and install other bricks using:
 
 ```bash
-mason search <brick-name>
 mason add <brick-name>
+mason get
 ```
 
 ---
@@ -137,11 +142,15 @@ mason add <brick-name>
    ```bash
    dart pub global activate mason_cli
    ```
-4. Initialize Mason:
+4. Get Mason Bricks:
    ```bash
    mason get
    ```
-5. Run the Flutter app:
+5. Create a new brick:
+   ```bash
+    mason make <brick-name>
+    ```
+6. Run the Flutter app:
    ```bash
    flutter run
    ```
